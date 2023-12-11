@@ -49,7 +49,7 @@
     "lint": "eslint src/",
     "lint:attw": "attw --pack .",
     "lint:publint": "publint",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:cache:clear": "jest --clearCache --useStderr"
   },
   "dependencies": {
