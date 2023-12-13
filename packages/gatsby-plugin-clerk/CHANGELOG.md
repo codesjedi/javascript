@@ -1,5 +1,32 @@
 # Change Log
 
+## 5.0.0-alpha-v5.10
+
+### Major Changes
+
+- Remove the named `Clerk` import from `gatsby-plugin-clerk` and import `createClerkClient` instead. The latter is a factory method to create a Clerk client instance for you. This update aligns usage across our SDKs and will enable us to ship DX improvements better in the future. ([#2317](https://github.com/clerk/javascript/pull/2317)) by [@tmilewski](https://github.com/tmilewski)
+
+  Inside your code, search for occurrences like these:
+
+  ```js
+  import { Clerk } from 'gatsby-plugin-clerk';
+  const clerk = Clerk({ secretKey: '...' });
+  ```
+
+  You need to rename the import from `Clerk` to `createClerkClient` and change its usage:
+
+  ```js
+  import { createClerkClient } from 'gatsby-plugin-clerk';
+  const clerk = createClerkClient({ secretKey: '...' });
+  ```
+
+### Patch Changes
+
+- Updated dependencies [[`02976d494`](https://github.com/clerk/javascript/commit/02976d49473958b8c3fea38d4e389dc1bee7e8c4), [`02976d494`](https://github.com/clerk/javascript/commit/02976d49473958b8c3fea38d4e389dc1bee7e8c4), [`86d52fb5c`](https://github.com/clerk/javascript/commit/86d52fb5cf68f1dc7adf617605b922134e21268f), [`ab4eb56a5`](https://github.com/clerk/javascript/commit/ab4eb56a5c34baf496ebb8ac412ad6171b9bd79c), [`46040a2f3`](https://github.com/clerk/javascript/commit/46040a2f34d0991072fca490e031c1994b2e2296), [`75ea300bc`](https://github.com/clerk/javascript/commit/75ea300bce16a0ce401a225263bb267ad2a217b8), [`844847e0b`](https://github.com/clerk/javascript/commit/844847e0becf20243fba3c659b2b77a238dd270a)]:
+  - @clerk/clerk-sdk-node@5.0.0-alpha-v5.8
+  - @clerk/backend@1.0.0-alpha-v5.8
+  - @clerk/clerk-react@5.0.0-alpha-v5.10
+
 ## 5.0.0-alpha-v5.9
 
 ### Patch Changes
